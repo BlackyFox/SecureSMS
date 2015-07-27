@@ -5,6 +5,8 @@ import android.content.Intent;
 import android.telephony.SmsManager;
 import android.widget.Toast;
 
+import java.util.Arrays;
+
 /**
  * Created by Antoine on 27/07/2015.
  */
@@ -28,12 +30,22 @@ public class SmsSender {
 
     /**
      * Méthode permettant d'utiliser l'API SmsManager pour envoyer des SMS
+     *
+     * TODO : A mettre dans une asyncTask !
      */
     public void send() {
         Toast.makeText(c, "Starting to send the message!", Toast.LENGTH_SHORT).show();
-        SmsManager smsManager = SmsManager.getDefault();
-        smsManager.sendTextMessage(this.destinataire, null, this.msg, null, null);
-        Toast.makeText(c, "Message sent!", Toast.LENGTH_SHORT).show();
+        AESencrypt aes = new AESencrypt(c, this.msg);
+        aes.cypher();
+        if(aes.getEnc_msg() != null) {
+            SmsManager smsManager = SmsManager.getDefault();
+            smsManager.sendTextMessage(this.destinataire, null, aes.getEnc_msg(),
+                    null, null);
+            Toast.makeText(c, "Message sent!", Toast.LENGTH_SHORT).show();
+        }else{
+            Toast.makeText(c, "Ecryption error!!! Contact the dev quickly!", Toast.LENGTH_SHORT)
+                    .show();
+        }
     }
 
 }
