@@ -24,6 +24,7 @@ public class AESencrypt {
     private byte[] enc_msg = null;
     private String password;
     private String salt;
+    private SecretKey secret2;
 
     public AESencrypt(Context c, String msg) {
         this.c = c;
@@ -40,6 +41,7 @@ public class AESencrypt {
                     Charset.defaultCharset()), 65536, 256);
             SecretKey tmp = factory.generateSecret(spec);
             SecretKey secret = new SecretKeySpec(tmp.getEncoded(), "AES");
+            secret2 = secret;
             /*Message encryption*/
             Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
             cipher.init(Cipher.ENCRYPT_MODE, secret);
@@ -55,6 +57,19 @@ public class AESencrypt {
         if(enc_msg != null){
             return "SecureSMS message - AES256\n"+ Arrays.toString(enc_msg);
         }else{
+            return null;
+        }
+    }
+
+    public String decypher(String ciphertext){
+        try {
+            Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
+            AlgorithmParameters params = cipher.getParameters();
+            byte[] iv = params.getParameterSpec(IvParameterSpec.class).getIV();
+            cipher.init(Cipher.DECRYPT_MODE, secret2, new IvParameterSpec(iv));
+            return(new String(cipher.doFinal(ciphertext.getBytes()), "UTF-8"));
+        }catch (Exception e){
+            e.printStackTrace();
             return null;
         }
     }
