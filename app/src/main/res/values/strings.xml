@@ -7,4 +7,6 @@
     <string name="phone_hint">06xxxxxxxx</string>
     <string name="msg_hint">Hello there !</string>
     <string name="but_send">Send</string>
+    <string name="choose_AES">AES</string>
+    <string name="choose_RSA">RSA</string>
 </resources>

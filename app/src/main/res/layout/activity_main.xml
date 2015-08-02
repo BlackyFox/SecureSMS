@@ -91,6 +91,33 @@
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
             android:orientation="horizontal"
+            android:gravity="center_horizontal|bottom"
+            android:layout_marginTop="15dp"
+            android:layout_marginBottom="15dp">
+
+            <RadioGroup
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center">
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/choose_AES"
+                        android:layout_marginEnd="5dp"/>
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/choose_RSA"
+                        android:layout_marginStart="5dp"/>
+            </RadioGroup>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:orientation="horizontal"
             android:gravity="center_horizontal|bottom">
 
             <Button
@@ -100,6 +127,7 @@
                 android:text="@string/but_send"
                 android:onClick="onSendSms"
                 android:id="@+id/but_send"/>
+
         </LinearLayout>
 
     </LinearLayout>
