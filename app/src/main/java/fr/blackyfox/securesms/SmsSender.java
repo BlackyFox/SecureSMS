@@ -2,6 +2,7 @@ package fr.blackyfox.securesms;
 
 import android.content.Context;
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.telephony.SmsManager;
 import android.widget.Toast;
 
@@ -12,13 +13,13 @@ import java.util.Arrays;
  */
 public class SmsSender {
 
-    private String destinataire; //Numéro du destinataire
+    private String destinataire; //Numï¿½ro du destinataire
     private String msg; //Contenu du message
     private Context c; //Contexte de l'application pour affichage des Toast
 
     /**
-     * Constructeur récupérant les variables pour l'envoie du sms
-     * @param destinataire //numéro du destinataire
+     * Constructeur recuperant les variables pour l'envoie du sms
+     * @param destinataire //numï¿½ro du destinataire
      * @param msg //contenu du message
      * @param c //contexte de l'application
      */
@@ -29,7 +30,7 @@ public class SmsSender {
     }
 
     /**
-     * Méthode permettant d'utiliser l'API SmsManager pour envoyer des SMS
+     * Mï¿½thode permettant d'utiliser l'API SmsManager pour envoyer des SMS
      *
      * TODO : A mettre dans une asyncTask !
      */
@@ -47,5 +48,4 @@ public class SmsSender {
                     .show();
         }
     }
-
 }

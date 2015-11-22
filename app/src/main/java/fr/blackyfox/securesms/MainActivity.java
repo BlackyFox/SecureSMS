@@ -31,9 +31,12 @@ public class MainActivity extends ActionBarActivity {
             if(!msg.getText().toString().matches("")){
                 Toast.makeText(this.getApplicationContext(), "To: "+number.getText()+"\n"+
                         "Message: "+msg.getText(), Toast.LENGTH_LONG).show();
-                SmsSender sms = new SmsSender(number.getText().toString(), msg.getText().toString(),
-                        getApplicationContext());
-                sms.send();
+                //SmsSender sms = new SmsSender(number.getText().toString(), msg.getText().toString(),
+                        //getApplicationContext());
+                //sms.send();
+                SmsSender_A sms = new SmsSender_A(number.getText().toString(),
+                        msg.getText().toString(), getApplicationContext());
+                sms.execute();
             }else{
                 Toast.makeText(this.getApplicationContext(), "You cannot send an empty message!",
                         Toast.LENGTH_SHORT).show();
