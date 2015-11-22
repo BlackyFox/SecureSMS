@@ -57,7 +57,7 @@ public class SmsSender_A extends AsyncTask<Void, Integer, Integer> {
         }else{
             return 1;
             //Toast.makeText(c, "Ecryption error!!! Contact the dev quickly!", Toast.LENGTH_SHORT)
-                    //.show();
+                    //.show();;
         }
         //return null;
     }
