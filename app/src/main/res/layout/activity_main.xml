@@ -42,17 +42,38 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
-            <EditText
+            <RelativeLayout
                 android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:inputType="phone"
-                android:ems="10"
-                android:id="@+id/phone_num"
-                android:hint="@string/phone_hint"
-                android:gravity="top|center"
-                android:layout_gravity="center_vertical"
-                android:layout_marginStart="60dp"
-                android:layout_marginEnd="60dp"/>
+                android:layout_height="wrap_content" >
+
+                <EditText
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="phone"
+                    android:ems="10"
+                    android:id="@+id/phone_num"
+                    android:hint="@string/phone_hint"
+                    android:gravity="top|center"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginStart="60dp"
+                    android:layout_marginEnd="60dp"/>
+
+                <ImageButton
+                    android:id="@+id/button1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@mipmap/ic_contact"
+                    android:layout_centerVertical="true"
+                    android:layout_alignTop="@id/phone_num"
+                    android:layout_alignBottom="@id/phone_num"
+                    android:layout_alignParentEnd="true"
+                    android:background="@null"
+                    android:layout_marginEnd="10dp"
+                    android:contentDescription="@string/button_choose_contact"
+                    android:onClick="onChooseContact"/>
+
+            </RelativeLayout>
+
         </LinearLayout>
 
         <LinearLayout
@@ -64,7 +85,7 @@
             <TextView
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/phone_num_instructions"
+                android:text="@string/msg_to_send"
                 android:layout_marginTop="40dp"
                 android:gravity="center"/>
 
